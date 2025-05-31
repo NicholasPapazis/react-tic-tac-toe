@@ -1,6 +1,8 @@
 //code in this file creates a component, a piece of reusable code that represents part of a UI
 //components are used to render, manage, and update the UI elements in your application
 
+// useState is a function that you can call from your component to let it remember things
+import { useState } from 'react'; 
 
 // function square() -> defines function called square
 // export -> makes this function accessible outside of this file
@@ -15,19 +17,19 @@ export default function Board() {
     //wrap adjacent JSX elements in fragments
     <> 
         <div className="board-row">
-          <Square value="1" />
-          <Square value="2" />
-          <Square value="3"/>
+          <Square  />
+          <Square  />
+          <Square  />
         </div>
         <div className="board-row">
-          <Square value="4" />
-          <Square value="5" />
-          <Square value="6" />
+          <Square  />
+          <Square  />
+          <Square  />
         </div>
         <div className="board-row">
-          <Square value="7" />
-          <Square value="8" />
-          <Square value="9" />
+          <Square  />
+          <Square  />
+          <Square  />
         </div>
     </>
   );
@@ -37,6 +39,25 @@ export default function Board() {
 // new square component
 // we use props to pass the value each square should have from the parent component (Board) to its child (Square)
 // function Square({ value }) indicates the Square component can be passed a prop called value
-function Square({ value }) {
-  return <button className="square">{value}</button>
+function Square() {
+  
+  // value -> stores the value
+  // setValue -> function used to change the value
+  // null passed to useState is used as the initial value for this state variable
+  const [value, setValue] = useState(null);
+
+  //fill Square with X when clicked
+  //usage is within onClick prop in button component
+  function handleClick() {
+    setValue('X'); //setValue is the 2nd parameter when creating the state variable for value
+  }
+
+  return (
+    <button 
+      className="square" 
+      onClick={handleClick}
+      >
+        {value}
+      </button>
+  );
 }
