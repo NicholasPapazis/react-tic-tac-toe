@@ -1,12 +1,16 @@
+/* defines styles for the react app */
+
+/* (* and body) define the style of large parts of the app */
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: sans-serif;
   margin: 20px;
   padding: 0;
 }
+
+
 
 h1 {
   margin-top: 0;
@@ -56,6 +60,7 @@ body {
   padding: 0;
 }
 
+/* styles any component where the className property is set to square */
 .square {
   background: #fff;
   border: 1px solid #999;
